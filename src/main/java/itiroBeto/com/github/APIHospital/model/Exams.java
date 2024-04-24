@@ -1,5 +1,6 @@
 package itiroBeto.com.github.APIHospital.model;
 
+import itiroBeto.com.github.APIHospital.enums.ExamsPatientStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -22,9 +23,14 @@ public class Exams implements Serializable {
 
     private String DateTime;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    Doctor doctor;
+    @Enumerated(EnumType.STRING)
+    private ExamsPatientStatusEnum status;
+
+
+    @OneToMany
+    @JoinColumn(name = "consultation_id")
+    Consultation consultation;
+
 
     public Long getId() {
         return Id;
@@ -66,11 +72,19 @@ public class Exams implements Serializable {
         DateTime = dateTime;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
+    public ExamsPatientStatusEnum getStatus() {
+        return status;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public void setStatus(ExamsPatientStatusEnum status) {
+        this.status = status;
+    }
+
+    public Consultation getConsultation() {
+        return consultation;
+    }
+
+    public void setConsultation(Consultation consultation) {
+        this.consultation = consultation;
     }
 }

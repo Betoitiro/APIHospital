@@ -27,7 +27,8 @@ public class Consultation implements Serializable {
     @JoinColumn(name = "doctor_id")
     Doctor doctor;
 
-    @ManyToOne
+
+    @OneToMany
     @JoinColumn(name = "patient_id")
     Patient patient;
 

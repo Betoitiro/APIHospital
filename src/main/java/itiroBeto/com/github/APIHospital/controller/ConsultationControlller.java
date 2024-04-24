@@ -43,6 +43,11 @@ public class ConsultationControlller {
         return consultationService.changeState(id);
     }
 
+    @PutMapping("/cancelledState/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Optional<Consultation> cancelledState(@PathVariable Long id){
+        return consultationService.cancelledState(id);
+    }
     //Doctor operational departament
 
     @GetMapping("/findhistorycpatient/{id}")

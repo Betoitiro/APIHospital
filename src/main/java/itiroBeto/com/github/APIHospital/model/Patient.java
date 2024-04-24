@@ -1,9 +1,6 @@
 package itiroBeto.com.github.APIHospital.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +21,10 @@ public class Patient implements Serializable {
     private String gender;
     private String email;
     private String Enderece;
+
+    @OneToOne
+    @JoinColumn(name = "Agreementi_id")
+    Agreement agreement;
 
     public Long getId() {
         return id;
@@ -71,5 +72,13 @@ public class Patient implements Serializable {
 
     public void setEnderece(String enderece) {
         Enderece = enderece;
+    }
+
+    public Agreement getAgreement() {
+        return agreement;
+    }
+
+    public void setAgreement(Agreement agreement) {
+        this.agreement = agreement;
     }
 }

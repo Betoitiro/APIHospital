@@ -2,7 +2,6 @@ package itiroBeto.com.github.APIHospital.service;
 
 import itiroBeto.com.github.APIHospital.enums.ConsultationPatientStatusEnum;
 import itiroBeto.com.github.APIHospital.model.Consultation;
-import itiroBeto.com.github.APIHospital.model.Doctor;
 import itiroBeto.com.github.APIHospital.repository.ConsultationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,9 +37,9 @@ public class ConsultationService {
         return optionalConsultation;
     }
 
-    public Optional<Consultation> cancelledState(Long id, Consultation consultation){
+    public Optional<Consultation> cancelledState(Long id){
         Optional<Consultation> optionalConsultation = consultationRepository.findById(id);
-        if (optionalConsultation.isEmpty()){
+        if (optionalConsultation.isPresent()){
             Consultation cancellConsultation = optionalConsultation.get();
             cancellConsultation.setStatus(ConsultationPatientStatusEnum.CANCELADA);
             consultationRepository.save(cancellConsultation);

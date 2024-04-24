@@ -50,4 +50,6 @@ public class ConsultationControlller {
     public List<Consultation> findHistoryPatientId(@PathVariable Long id){
         return consultationService.findHistoryPatientId(id);
     }
+
+
 }

@@ -1,9 +1,6 @@
 package itiroBeto.com.github.APIHospital.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +18,12 @@ public class Doctor implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Long CRM;
+    private Long crm;
     private String specialty;
     private String email;
     private String time;
+
+
 
     public Long getId() {
         return id;
@@ -42,12 +41,12 @@ public class Doctor implements Serializable {
         this.name = name;
     }
 
-    public Long getCRM() {
-        return CRM;
+    public Long getCrm() {
+        return crm;
     }
 
-    public void setCRM(Long CRM) {
-        this.CRM = CRM;
+    public void setCrm(Long crm) {
+        this.crm = crm;
     }
 
     public String getSpecialty() {
@@ -73,4 +72,5 @@ public class Doctor implements Serializable {
     public void setTime(String time) {
         this.time = time;
     }
+
 }

@@ -17,11 +17,10 @@ public class Agreement implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String company;
     private String email;
 
     @Enumerated(EnumType.STRING)
-    private AgreementPatientStatusEnum status;
+    private AgreementPatientStatusEnum company;
 
 
 
@@ -33,13 +32,6 @@ public class Agreement implements Serializable {
         this.id = id;
     }
 
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
 
     public String getEmail() {
         return email;
@@ -49,11 +41,11 @@ public class Agreement implements Serializable {
         this.email = email;
     }
 
-    public AgreementPatientStatusEnum getStatus() {
-        return status;
+    public AgreementPatientStatusEnum getCompany() {
+        return company;
     }
 
-    public void setStatus(AgreementPatientStatusEnum status) {
-        this.status = status;
+    public void setCompany(AgreementPatientStatusEnum company) {
+        this.company = company;
     }
 }

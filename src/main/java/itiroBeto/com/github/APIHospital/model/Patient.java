@@ -23,7 +23,7 @@ public class Patient implements Serializable {
     private String Enderece;
 
     @OneToOne
-    @JoinColumn(name = "Agreementi_id")
+    @JoinColumn(name = "Agreement_id")
     Agreement agreement;
 
     public Long getId() {

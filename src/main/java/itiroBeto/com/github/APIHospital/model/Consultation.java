@@ -28,9 +28,10 @@ public class Consultation implements Serializable {
     Doctor doctor;
 
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "patient_id")
     Patient patient;
+
 
     public Long getId() {
         return id;

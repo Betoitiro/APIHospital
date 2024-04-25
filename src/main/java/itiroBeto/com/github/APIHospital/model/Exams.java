@@ -27,9 +27,10 @@ public class Exams implements Serializable {
     private ExamsPatientStatusEnum status;
 
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "consultation_id")
     Consultation consultation;
+
 
 
     public Long getId() {

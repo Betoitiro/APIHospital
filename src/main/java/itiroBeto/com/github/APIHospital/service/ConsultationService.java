@@ -56,9 +56,7 @@ public class ConsultationService {
     }
 
     //Doctor departament
-    @GetMapping("/findhistorycpatient/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Consultation> findHistoryPatientId(@PathVariable Long id){
+    public List<Consultation> findHistoryPatientId(Long id){
         return consultationRepository.findByPatientId(id);
     }
 }

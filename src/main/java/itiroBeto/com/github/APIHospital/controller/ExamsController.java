@@ -41,4 +41,8 @@ public class ExamsController {
         return examsService.cancelledStateExams(id);
     }
 
+
+    //Zone patient
+
+
 }

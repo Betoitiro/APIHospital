@@ -42,7 +42,18 @@ public class ExamsController {
     }
 
 
-    //Zone patient
 
+    @GetMapping("/findexams/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<Exams> findById(@PathVariable Long id){
+        return examsService.findById(id);
+    }
+
+    //Zone patient
+    @GetMapping("/findHistoryExams/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Exams> findByConsultationId(@PathVariable Long id){
+        return examsService.findByConsultationId(id);
+    }
 
 }

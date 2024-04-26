@@ -4,11 +4,7 @@ import itiroBeto.com.github.APIHospital.enums.ExamsPatientStatusEnum;
 import itiroBeto.com.github.APIHospital.model.Exams;
 import itiroBeto.com.github.APIHospital.repository.ExamsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 import java.util.Optional;
@@ -51,14 +47,8 @@ public class ExamsService {
             return examsRepository.findById(id);
         }
 
-
-        //zone patient
-
-        @GetMapping("/findHistoryExams/{id}")
-        @ResponseStatus(HttpStatus.OK)
-        public Optional<Exams> findHistoryExamsId(Long id){
-            return examsRepository.findById(id);
+        public List<Exams> findByConsultationId(Long id){
+            return  examsRepository.findByConsultationId(id);
         }
-
 
 }

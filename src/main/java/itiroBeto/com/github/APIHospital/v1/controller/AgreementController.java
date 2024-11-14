@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/agreement")
+@RequestMapping("/api/v1/agreement")
 public class AgreementController {
     @Autowired
     AgreementService agreementService;

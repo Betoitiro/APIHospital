@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/exams")
+@RequestMapping("/api/v1/exams")
 public class ExamsController {
 
     @Autowired
     ExamsService examsService;
 
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public void create(@RequestBody Exams exams){
         examsService.createExams(exams);

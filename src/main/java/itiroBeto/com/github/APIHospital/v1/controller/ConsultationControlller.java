@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/consultation")
+@RequestMapping("/api/v1/consultation")
 public class ConsultationControlller {
     @Autowired
     ConsultationService consultationService;

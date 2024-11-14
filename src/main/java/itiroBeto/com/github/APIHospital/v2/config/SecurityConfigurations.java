@@ -29,8 +29,16 @@ public class SecurityConfigurations {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/auth/login", "/auth/register", "/public/**").permitAll()
-                        .requestMatchers("/api/v1/patient/**", "/api/v1/product").hasRole("ADMIN")
-                        .requestMatchers( "/api/v1/person", "/api/v1/backoffice/product").hasRole("USER")
+                        .requestMatchers(
+                                "/api/v1/patient/**",
+                                "/api/v1/agreement/**",
+                                "/api/v1/consultation/**",
+                                "/api/v1/doctor/**",
+                                "/api/v1/exams/**"
+                        ).hasRole("ADMIN")
+                        .requestMatchers(
+                                "/api/v1/exams/**"
+                        ).hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)

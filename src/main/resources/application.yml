@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: APIHospital
+  datasource:
+    url: jdbc:postgresql://localhost:5432/apiHospital
+    username: postgis
+    password: postgis
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+security:
+  jwt:
+    secret: v3S3cr3taS3gur4EAl3at0r1a$%¨&*

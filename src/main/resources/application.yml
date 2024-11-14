@@ -17,7 +17,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-
 security:
   jwt:
-    secret: v3S3cr3taS3gur4EAl3at0r1a$%¨&*
+    secret: "v3S3cr3taS3gur4EAl3at0r1a!&%"

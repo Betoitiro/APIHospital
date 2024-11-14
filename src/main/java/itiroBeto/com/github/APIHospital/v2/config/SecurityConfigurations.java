@@ -1,5 +1,6 @@
 package itiroBeto.com.github.APIHospital.v2.config;
 
+import itiroBeto.com.github.APIHospital.v2.config.SecurityFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,9 +28,9 @@ public class SecurityConfigurations {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/login", "/auth/register", "/public/**", "/swagger-ui/index.html", " /v3/api-docs").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/v1/person", "/api/v1/backoffice/product").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/api/v1/person", "/api/v1/product").hasRole("USER")
+                        .requestMatchers("/auth/login", "/auth/register", "/public/**").permitAll()
+                        .requestMatchers("/api/v1/patient/**", "/api/v1/product").hasRole("ADMIN")
+                        .requestMatchers( "/api/v1/person", "/api/v1/backoffice/product").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
